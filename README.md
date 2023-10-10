@@ -1,5 +1,5 @@
-# starkcli-starknetjs-stepbystep
-A step by step by on how to deploy and interact with Starknet smart contracts, using both the Starkcli tool and Starknetjs sdk.
+# starkli-starknetjs-stepbystep
+A step by step by on how to deploy and interact with Starknet smart contracts, using both the Starcli tool and Starknetjs sdk.
 
 ## Useful documentation
 
@@ -8,6 +8,20 @@ A step by step by on how to deploy and interact with Starknet smart contracts, u
 - [The Cairo programming language](https://book.cairo-lang.org/title-page.html)
 - [Starknet by examples](https://starknet-by-example.voyager.online/starknet-by-example.html)
 
-## Starkcli
+## Starcli
 
 ### Setting up envirronment
+
+1. Install `starkliup`
+```
+curl https://get.starkli.sh | sh
+```
+2. Restart the terminal
+3. Install starkli
+```
+starkliup
+```
+4. Restart the terminal and run
+```
+starkli --version
+```
