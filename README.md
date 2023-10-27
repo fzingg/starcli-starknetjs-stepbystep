@@ -3,6 +3,25 @@ A step by step guide on how to deploy and interact with Starknet smart contracts
 
 It can be useful for achieving few quests of the amazing [node guardians](https://nodeguardians.io/) platform where you can learn Cairo and Starknet, amongs many others skills.
 
+## Table of contents
+
+- [Useful resources and tools](https://github.com/fzingg/starcli-starknetjs-stepbystep#useful-resources-and-tools)
+- [Argent X smart wallet account](https://github.com/fzingg/starcli-starknetjs-stepbystep#argent-x-smart-wallet-account)
+- [Starkli](https://github.com/fzingg/starcli-starknetjs-stepbystep#starkli)
+- [Starkli - Setting up environment](https://github.com/fzingg/starcli-starknetjs-stepbystep#setting-up-environment)
+- [Starkli - Creating a signer](https://github.com/fzingg/starcli-starknetjs-stepbystep#creating-a-signer)
+- [Starkli - Creating an account descriptor](https://github.com/fzingg/starcli-starknetjs-stepbystep#creating-an-account-descriptor)
+- [Starkli - Setting up Environment Variables](https://github.com/fzingg/starcli-starknetjs-stepbystep#setting-up-environment-variables)
+- [Starkli - Build a cairo smart-contract](https://github.com/fzingg/starcli-starknetjs-stepbystep#build-a-cairo-smart-contract)
+- [Starkli - Declaring your contract](https://github.com/fzingg/starcli-starknetjs-stepbystep#declaring-your-contract)
+- [Starkli - Deploying Smart Contracts on Starknet](https://github.com/fzingg/starcli-starknetjs-stepbystep#deploying-smart-contracts-on-starknet)
+- [Starkli - Interacting with the Starknet contract](https://github.com/fzingg/starcli-starknetjs-stepbystep#interacting-with-the-starknet-contract)
+- []()
+- []()
+- []()
+- []()
+
+
 ## Useful resources and tools
 
 - [Create an ArgentX wallet](https://www.argent.xyz/learn/how-to-create-an-argent-x-wallet/)
@@ -179,3 +198,4 @@ starkli invoke \
 
 Replace <CONTRACT_ADDRESS> with the address of the contract and <NEW_OWNER_ADDRESS> with the address you want to transfer ownership to.
 
+## Starknet.js
