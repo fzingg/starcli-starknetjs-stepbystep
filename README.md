@@ -17,9 +17,10 @@ It can be useful for achieving few quests of the amazing [node guardians](https:
 - [Starkli - Deploying Smart Contracts on Starknet](https://github.com/fzingg/starcli-starknetjs-stepbystep#deploying-smart-contracts-on-starknet)
 - [Starkli - Interacting with the Starknet contract](https://github.com/fzingg/starcli-starknetjs-stepbystep#interacting-with-the-starknet-contract)
 - [Starknet.js](https://github.com/fzingg/starcli-starknetjs-stepbystep#starknetjs)
+- [Starknet.js -What is Starknet.js ?](https://github.com/fzingg/starcli-starknetjs-stepbystep#what-is-starknetjs-)
+- [Starknet.js -Installation](https://github.com/fzingg/starcli-starknetjs-stepbystep#installation)
 - [Starknet.js -]()
-- [Starknet.js -]()
-- [Starknet.js -]()
+- [Starknet.js -Connect to an existing account](https://github.com/fzingg/starcli-starknetjs-stepbystep#connect-to-an-existing-account)
 - [Starknet.js -]()
 - [Starknet.js -]()
 - [Starknet.js -]()
@@ -36,6 +37,7 @@ It can be useful for achieving few quests of the amazing [node guardians](https:
 - [Various type convertor (Felt, Hex, String, ...)](https://www.stark-utils.xyz/converter)
 -  [StarkNet’s Cairo Language: the Felt Integer Type Explained](https://www.youtube.com/watch?v=jcrAq71WwSM)
 - [Smart Contract Development With Starknet & Cairo Language with Katana Local Node](https://livesoftwaredeveloper.com/articles/8/smart-contract-development-with-starknet-cairo-language-with-katana-local-node)
+- [Cairo and javascript data transformation](https://www.starknetjs.com/docs/guides/define_call_message/)
 
 ## Argent X smart wallet account
 We will need to create an argentX smart wallet and an account, which will be used when interacting with Starknet smart contracts.
@@ -173,7 +175,7 @@ The contract is now live on the Starknet testnet. You can verify its status usin
 
 #### Calling a read Function
 
-The call command enables you to query a smart contract function without sending a transaction. For instance, to find out who the current owner of the contract is, you can use the get_owner function, which requires no arguments.
+The call command enables you to query a smart contract function without sending a transaction. For instance, to find out who the current owner of the contract is, you can use the `get_owner` function, which requires no arguments.
 
 ```
 starkli call \
@@ -223,6 +225,14 @@ npm install starknet
 npm install starknet@next
 ```
 
+### Create a project for running samples files
+
+Just run the command:
+```
+npm init
+```
+Then you can copy all samples files from `starknetjs samples` directory of this repo to your local project.
+
 ### Connect to an existing account
 
 We are going to use our [Argent X smart wallet account](https://github.com/fzingg/starcli-starknetjs-stepbystep#argent-x-smart-wallet-account) we created previously.
@@ -240,7 +250,7 @@ Run the script:
 node connect_existing_account.js
 ```
 
-you should see the account informationin the console:
+you should see the account information in the console:
 ```
 account Account {
   provider: SequencerProvider {
@@ -260,3 +270,39 @@ account Account {
   cairoVersion: '0'
 }
 ```
+
+### Connect to a deployed contract
+
+Previously we deployed a contract.
+We will now connect to it by using the `new Contract(testAbi, testAddress, provider)` method.
+
+In the sample javascript file of this repo `starknetjs samples/connect_deployed_contract.js` replace the `ContractAddress` with your deployed contract address.
+
+Run the script: 
+```
+node connect_deployed_contract.js
+```
+
+You should see all information about your contract in the console.
+
+### Interact with your contract
+
+#### Calling a read function
+
+Our previsously deployed contract has a `get_owner` function which returns the address of the deployer account.
+
+We will call that method directly on the contract instance we connected to previously: 
+```
+myTestContract.get_owner();
+```
+
+In the sample javascript file of this repo `starknetjs samples/interact_read_contract.js` replace the `ContractAddress` with your deployed contract address.
+
+Run the script: 
+```
+node interact_read_contract.js
+```
+
+You should see your account address which is the owner of your contract.
+
+note: We use `"0x" + BigInt(OwnerAddress).toString(16)` to convert the number returned by starknet to a HEX address.
