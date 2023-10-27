@@ -163,7 +163,8 @@ Replace <CONTRACT_ADDRESS> with the address of your contract. The command will r
 ```
 [
     "0x02cdab749380950e7a7c0deff5ea8edd716feb3a2952add4e5659655077b8510"
-]```
+]
+```
 
 #### Invoking a Write Function
 
