@@ -145,3 +145,36 @@ Contract deployed:
 ```
 
 The contract is now live on the Starknet testnet. You can verify its status using a block explorer like StarkScan. On the "Read/Write Contract" tab, you’ll see the contract’s external functions.
+
+### Interacting with the Starknet contract
+
+#### Calling a read Function
+
+The call command enables you to query a smart contract function without sending a transaction. For instance, to find out who the current owner of the contract is, you can use the get_owner function, which requires no arguments.
+
+```
+starkli call \
+    <CONTRACT_ADDRESS> \
+    get_owner
+```
+
+Replace <CONTRACT_ADDRESS> with the address of your contract. The command will return the owner’s address, which was initially set during the contract’s deployment:
+
+```
+[
+    "0x02cdab749380950e7a7c0deff5ea8edd716feb3a2952add4e5659655077b8510"
+]```
+
+#### Invoking a Write Function
+
+You can modify the contract’s state using the invoke command. For example, let’s transfer the contract’s ownership with the transfer_ownership function.
+
+```
+starkli invoke \
+    <CONTRACT_ADDRESS> \
+    transfer_ownership \
+    <NEW_OWNER_ADDRESS>
+```
+
+Replace <CONTRACT_ADDRESS> with the address of the contract and <NEW_OWNER_ADDRESS> with the address you want to transfer ownership to.
+
