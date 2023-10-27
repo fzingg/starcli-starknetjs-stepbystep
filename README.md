@@ -16,11 +16,15 @@ It can be useful for achieving few quests of the amazing [node guardians](https:
 - [Starkli - Declaring your contract](https://github.com/fzingg/starcli-starknetjs-stepbystep#declaring-your-contract)
 - [Starkli - Deploying Smart Contracts on Starknet](https://github.com/fzingg/starcli-starknetjs-stepbystep#deploying-smart-contracts-on-starknet)
 - [Starkli - Interacting with the Starknet contract](https://github.com/fzingg/starcli-starknetjs-stepbystep#interacting-with-the-starknet-contract)
-- []()
-- []()
-- []()
-- []()
-
+- [Starknet.js](https://github.com/fzingg/starcli-starknetjs-stepbystep#starknetjs)
+- [Starknet.js -]()
+- [Starknet.js -]()
+- [Starknet.js -]()
+- [Starknet.js -]()
+- [Starknet.js -]()
+- [Starknet.js -]()
+- [Starknet.js -]()
+- [Starknet.js -]()
 
 ## Useful resources and tools
 
@@ -199,3 +203,60 @@ starkli invoke \
 Replace <CONTRACT_ADDRESS> with the address of the contract and <NEW_OWNER_ADDRESS> with the address you want to transfer ownership to.
 
 ## Starknet.js
+
+### What is Starknet.js ?
+
+Starknet.js is a library that helps to connect your website or your Decentralized Application (DAPP) to the blockchain-based Starknet network, using Javascript / Typescript language.
+
+Full documentation: [Starknet.js](https://www.starknetjs.com/docs/guides/what_s_starknet.js)
+
+### Installation
+
+- use the main branch
+
+```
+npm install starknet
+```
+
+- to use latest features (merges in develop branch)
+```
+npm install starknet@next
+```
+
+### Connect to an existing account
+
+We are going to use our [Argent X smart wallet account](https://github.com/fzingg/starcli-starknetjs-stepbystep#argent-x-smart-wallet-account) we created previously.
+
+We will need :
+- The address of the account (public data)
+- The private key of the account (very sensistive data)
+
+We will use the `Account(provider, accountAddress, privateKey)` method.
+
+In the sample javascript file of this repo `starknetjs samples/connect_existing_account.js` replace the `privateKey` and `accountAddress` with your argentX account values.
+
+Run the script: 
+```
+node connect_existing_account.js
+```
+
+you should see the account informationin the console:
+```
+account Account {
+  provider: SequencerProvider {
+    responseParser: SequencerAPIResponseParser {},
+    baseUrl: 'https://alpha4.starknet.io',
+    feederGatewayUrl: 'https://alpha4.starknet.io/feeder_gateway',
+    gatewayUrl: 'https://alpha4.starknet.io/gateway',
+    chainId: '0x534e5f474f45524c49',
+    headers: undefined,
+    blockIdentifier: 'pending'
+  },
+  deploySelf: [AsyncFunction: deployAccount],
+  address: '0x0296xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  signer: Signer {
+    pk: '0x54xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  },
+  cairoVersion: '0'
+}
+```
