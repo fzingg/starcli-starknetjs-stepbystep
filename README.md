@@ -212,6 +212,8 @@ Starknet.js is a library that helps to connect your website or your Decentralize
 
 Full documentation: [Starknet.js](https://www.starknetjs.com/docs/guides/what_s_starknet.js)
 
+Great tutorials implemating React full project: [Starknet.js examples](https://book.starknet.io/ch02-07-01-examples.html)
+
 ### Installation
 
 - use the main branch
@@ -306,3 +308,35 @@ node interact_read_contract.js
 You should see your account address which is the owner of your contract.
 
 note: We use `"0x" + BigInt(OwnerAddress).toString(16)` to convert the number returned by starknet to a HEX address.
+
+#### Write to contract memory, with meta-class
+
+Our previsously deployed contract has a `transfer_ownership` function which transfers the account ownership of the contract.
+
+The method definition is: 
+
+```
+fn transfer_ownership(ref self: ContractState, new_owner: ContractAddress)
+```
+
+So from our starknet script we will have to pass the `new_owner` account address.
+
+We will use that way in the script:
+
+```
+const myCall = myTestContract.populate("transfer_ownership", { new_owner: NewOwnerAddress });
+    const res = await myTestContract.transfer_ownership(myCall.calldata);
+```
+
+In the sample javascript file of this repo `starknetjs samples/interact_write_contract.js` replace :
+- the `ContractAddress` with your deployed contract address.
+- the `privateKey` with your own account private key.
+- the `accountAddress` corrsponding (the own you used previously to deploy the contract).
+- the `NewOwnerAddress` with an a new account address (you can create another account on your ArgentX wallet for example).
+
+Run the script: 
+```
+node interact_write_contract.js
+```
+
+Then you can verify the ownership has been correctly transfered by checking on the [testnet starknet explorer](https://testnet.starkscan.co/). (go to Read/write Contract tab, click Read button, then the `get_owner` method).
